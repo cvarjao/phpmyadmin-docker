@@ -12,6 +12,6 @@ ADD https://github.com/tianon/gosu/releases/download/1.9/gosu-amd64.asc /usr/loc
 RUN chmod +x /usr/local/bin/gosu
 RUN uname -a  && whoami && mkdir -p /tmp/phpmyadmin && \
     ls -la /tmp
-
+EXPOSE 80 8080
 #tar xzf /tmp/phpmyadmin.tar.gz -C /tmp
 ENTRYPOINT ["top", "-b"]
