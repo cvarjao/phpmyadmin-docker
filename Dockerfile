@@ -3,7 +3,7 @@ MAINTAINER cleciovarjao@gmail.com
 
 RUN rpm -Uvh 'https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm' && \
     rpm -Uvh 'https://mirror.webtatic.com/yum/el7/webtatic-release.rpm' && \
-    yum install -y tar sudo cronie php56w php56w-opcache && \
+    yum install -y tar sudo cronie php56w-cli php56w-mysql php56w-opcache php56w-common php56w-gd php56w-mcrypt php56w-xml curl && \
     sed -i '/Defaults    requiretty/s/^/#/' /etc/sudoers
 
 ADD https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.tar.gz /tmp/phpmyadmin.tar.gz
