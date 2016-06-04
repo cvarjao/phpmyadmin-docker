@@ -1,7 +1,7 @@
 FROM registry.access.redhat.com/rhel7
 MAINTAINER cleciovarjao@gmail.com
 
-RUN rpm -Uvh 'https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm'
+RUN rpm -Uvh 'https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm' && \
     rpm -Uvh 'https://mirror.webtatic.com/yum/el7/webtatic-release.rpm' && \
     yum install -y tar sudo cronie rh-php56 && \
     sed -i '/Defaults    requiretty/s/^/#/' /etc/sudoers
