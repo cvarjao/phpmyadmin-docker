@@ -9,11 +9,14 @@ RUN rpm -Uvh 'https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch
 ADD https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.tar.gz /tmp/phpmyadmin.tar.gz
 ADD https://github.com/tianon/gosu/releases/download/1.9/gosu-amd64 /usr/local/bin/gosu
 ADD https://github.com/tianon/gosu/releases/download/1.9/gosu-amd64.asc /usr/local/bin/gosu.asc
-
+COPY ./files/ /
 
 RUN chmod +x /usr/local/bin/gosu
-RUN uname -a  && whoami && mkdir -p /tmp/phpmyadmin && \
-    ls -la /tmp
+RUN mkdir -p /app/phpmyadmin/www && \
+    tar xzf /tmp/phpmyadmin.tar.gz --strip-components=1 -C /app/phpmyadmin/www && \
+    useradd -Um phpmyadmin && \
+    chmod +x /app/phpmyadmin/run.sh
+    
 EXPOSE 80 8080
-#tar xzf /tmp/phpmyadmin.tar.gz -C /tmp
-ENTRYPOINT ["top", "-b"]
+#tar xzf /tmp/phpmyadmin.tar.gz -C /tmp/phpmyadmin
+ENTRYPOINT ["/app/phpmyadmin/run.sh"]
