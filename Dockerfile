@@ -1,7 +1,9 @@
 FROM registry.access.redhat.com/rhel7
 MAINTAINER cleciovarjao@gmail.com
 
-RUN yum install -y tar sudo cronie rh-php56 && \
+RUN rpm -Uvh 'https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm'
+    rpm -Uvh 'https://mirror.webtatic.com/yum/el7/webtatic-release.rpm' && \
+    yum install -y tar sudo cronie rh-php56 && \
     sed -i '/Defaults    requiretty/s/^/#/' /etc/sudoers
 
 ADD https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.tar.gz /tmp/phpmyadmin.tar.gz
