@@ -1,7 +1,7 @@
 FROM registry.access.redhat.com/rhel7
 MAINTAINER cleciovarjao@gmail.com
 
-RUN yum install -y tar sudo cronie php5-cli php5-mysqli && \
+RUN yum install -y tar sudo cronie rh-php56 && \
     sed -i '/Defaults    requiretty/s/^/#/' /etc/sudoers
 
 ADD https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.tar.gz /tmp/phpmyadmin.tar.gz
