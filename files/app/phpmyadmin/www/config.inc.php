@@ -32,7 +32,9 @@ $i++;
 /* Authentication type */
 $cfg['Servers'][$i]['auth_type'] = 'cookie';
 /* Server parameters */
-$cfg['Servers'][$i]['host'] =  $_ENV['MYSQL_SERVICE_HOST']; /*MYSQL_SERVICE_HOST */
+$cfg['Servers'][$i]['host'] =  '172.16.121.149';
+/*$_ENV['MYSQL_SERVICE_HOST']; */
+/*MYSQL_SERVICE_HOST */
 $cfg['Servers'][$i]['connect_type'] = 'tcp';
 $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['AllowNoPassword'] = false;
