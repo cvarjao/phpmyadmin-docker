@@ -10,6 +10,9 @@
  * @package PhpMyAdmin
  */
 
+fwrite(STDOUT, 'Loading config.inc.php');
+var_dump($_ENV);
+
 /**
  * This is needed for cookie based authentication to encrypt password in
  * cookie
