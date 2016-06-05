@@ -14,8 +14,8 @@
  * This is needed for cookie based authentication to encrypt password in
  * cookie
  */
-#$cfg['blowfish_secret'] = ''; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */
-require('./config.secret.inc.php');
+$cfg['blowfish_secret'] = 'ba17c1ec07d65003'; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */
+#require('./config.secret.inc.php');
 
 /**
  * Servers configuration
